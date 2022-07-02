@@ -9,10 +9,28 @@ import { Task } from '../../Task';
 })
 export class TasksComponent implements OnInit {
   tasks: Task[] = [];
+  toggle: boolean = false;
 
   constructor(private taskService: TaskService) {}
 
   ngOnInit(): void {
-    this.taskService.getTask().subscribe((tasks) => this.tasks = tasks);
+    this.taskService.getTask().subscribe((tasks) => (this.tasks = tasks));
+  }
+
+  deleteTask(task: Task): void {
+    console.log('task: ', task);
+    this.taskService
+      .deleteTask(task)
+      .subscribe(
+        () => (this.tasks = this.tasks.filter((t) => t.id !== task.id))
+      );
+  }
+  togglAddTask():void {
+
+  }
+  
+  toggleReminder(task: Task): void {
+    task.reminder = !task.reminder;
+    this.taskService.updateTaskReminder(task).subscribe();
   }
 }

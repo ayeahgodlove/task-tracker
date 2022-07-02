@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { emptyTask, Task } from "../../Task";
 
 @Component({
@@ -7,11 +7,20 @@ import { emptyTask, Task } from "../../Task";
   styleUrls: ['./task-item.component.css']
 })
 export class TaskItemComponent implements OnInit {
-  @Input() task: Task = emptyTask
-  
+  @Input() task: Task = emptyTask;
+  @Output() onDeleteTask: EventEmitter<Task> =  new EventEmitter();
+  @Output() onToggleReminder: EventEmitter<Task> =  new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  onDelete(task: Task):void {
+    this.onDeleteTask.emit(task);
+  }
+
+  onToggle(task: Task): void {
+    this.onToggleReminder.emit(task);
+  }
 }

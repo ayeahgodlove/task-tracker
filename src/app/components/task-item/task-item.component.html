@@ -1,10 +1,11 @@
-<mat-list-item>
-    <h3 matLine> {{task.text}} </h3>
+<mat-list-item (dblclick)="onToggle(task)">
+    <h3 matLine><mat-icon *ngIf="task.reminder"  [ngStyle]="{color: '#ff9800', fontSize: '15px', height: 'auto', width: 'auto'}">event</mat-icon> {{task.text}} </h3>
     <p matLine>
         <span> {{task.day}} </span>
-        <!-- <span class="demo-2"> -- {{task.reminder}} </span> -->
+        
     </p>
-    <button [ngStyle]="{ color: '#F88379'}" mat-icon-button color="white" aria-label="Example icon button with a home icon">
+    <button (click)="onDelete(task)" [ngStyle]="{ color: '#F88379'}" mat-icon-button color="white" aria-label="Example icon button with a home icon">
         <mat-icon>close</mat-icon>
     </button>
 </mat-list-item>
+<mat-divider></mat-divider>

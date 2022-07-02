@@ -1,6 +1,16 @@
+<!-- Opertations Header -->
+<mat-grid-list cols="2" rowHeight="60px">
+    <mat-grid-tile>
+        <span class="mat-display-1" style="margin-bottom: 0;">Tasks List</span>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <app-button color="primary" text="Add" (btnClick)="togglAddTask()"></app-button>
+    </mat-grid-tile>
+</mat-grid-list>
+
 <!-- backgroundColor: '#f4f4f4', color: '#333', -->
 <mat-card [ngStyle]="{ margin: '0 64px'}">
     <mat-list>
-        <app-task-item *ngFor="let task of tasks" [task]="task"> </app-task-item>
+        <app-task-item *ngFor="let task of tasks;  last as last" [task]="task" (onDeleteTask)="deleteTask(task)" (onToggleReminder)="toggleReminder(task)"> </app-task-item>
     </mat-list>
 </mat-card>
