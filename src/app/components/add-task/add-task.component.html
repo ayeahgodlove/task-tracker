@@ -1,0 +1,17 @@
+<mat-card
+    *ngIf="!showAddTask"
+    [ngStyle]="{ margin: '0 64px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '45px', backgroundColor: '#fff'}">
+    <form class="example-form">
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label [ngStyle]="{color: '#333'}">Task Name</mat-label>
+            <input matInput [ngStyle]="{color: '#333'}" class="example-full-input" placeholder="Ex. Pizza" value="">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label [ngStyle]="{color: '#333'}">Description</mat-label>
+            <textarea matInput [ngStyle]="{color: '#333'}" class="example-full-input"
+                placeholder="Ex. It makes me feel..."></textarea>
+        </mat-form-field>
+        <button mat-raised-button color="primary">Primary</button>
+    </form>
+</mat-card>

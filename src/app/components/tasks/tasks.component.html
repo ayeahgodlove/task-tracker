@@ -4,13 +4,17 @@
         <span class="mat-display-1" style="margin-bottom: 0;">Tasks List</span>
     </mat-grid-tile>
     <mat-grid-tile>
-        <app-button color="primary" text="Add" (btnClick)="togglAddTask()"></app-button>
+        <app-button color="{{showAddTask ? 'accet' : 'primary'}}" text="{{showAddTask ? 'Add' : 'Close'}}" (btnClick)="togglAddTask()"></app-button>
     </mat-grid-tile>
 </mat-grid-list>
+
+<!-- add task form -->
+<app-add-task show={toggle}></app-add-task>
 
 <!-- backgroundColor: '#f4f4f4', color: '#333', -->
 <mat-card [ngStyle]="{ margin: '0 64px'}">
     <mat-list>
-        <app-task-item *ngFor="let task of tasks;  last as last" [task]="task" (onDeleteTask)="deleteTask(task)" (onToggleReminder)="toggleReminder(task)"> </app-task-item>
+        <app-task-item *ngFor="let task of tasks;  last as last" [task]="task" (onDeleteTask)="deleteTask(task)"
+            (onToggleReminder)="toggleReminder(task)"> </app-task-item>
     </mat-list>
 </mat-card>
