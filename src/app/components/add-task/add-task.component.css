@@ -9,10 +9,27 @@
 }
 
 
-input, textarea {
+input,
+textarea {
     background-color: antiquewhite;
     padding: 1rem .5rem;
 }
-input:focus, textarea:focus {
+
+input:focus,
+textarea:focus {
     background-color: #fff;
+}
+
+.checkbox-section {
+    margin: 12px;
+    color: #333;
+    background-color: #f6f6f6;
+}
+
+input[type='checkbox'] {
+    border: 1px solid #333;
+}
+
+.btn-section {
+    margin: 12px;
 }
