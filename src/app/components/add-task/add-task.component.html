@@ -1,6 +1,6 @@
-<mat-card *ngIf="!showAddTask"
+<mat-card *ngIf="showAddTask"
     [ngStyle]="{ margin: '0 64px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '45px', backgroundColor: '#fff'}">
-    <form class="example-form" (ngSubmit)="onSubmit">
+    <form class="example-form" (ngSubmit)="onSubmit()">
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label [ngStyle]="{color: '#333'}">Task Name</mat-label>
             <input matInput name="text" id="text" [ngStyle]="{color: '#333'}" class="example-full-input"

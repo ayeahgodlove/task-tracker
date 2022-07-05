@@ -28,7 +28,7 @@ export class TaskService {
   }
 
   addTask(task: Task): Observable<Task> {
-    return this.http.post<Task>(this.apiUrl, task);
+    return this.http.post<Task>(this.apiUrl, task, httpOptions);
   }
 
   updateTaskReminder(task: Task): Observable<Task> {

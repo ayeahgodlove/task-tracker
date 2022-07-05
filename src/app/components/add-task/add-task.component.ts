@@ -39,11 +39,11 @@ export class AddTaskComponent implements OnInit {
       reminder: this.reminder
     }
 
-    console.log("null")
+    console.log("submiting...")
     //todo emit event
     this.text = '';
     this.day = '';
     this.reminder = false;
-    this.onAddTask.emit();
+    this.onAddTask.emit(newTask);
   }
 }

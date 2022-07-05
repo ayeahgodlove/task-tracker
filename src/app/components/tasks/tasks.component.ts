@@ -41,6 +41,6 @@ export class TasksComponent implements OnInit {
 
   //form sumit
   addTask(task: Task):void {
-    console.log("task: ", task)
+    this.taskService.addTask(task).subscribe((task) => this.tasks.push(task));
   }
 }

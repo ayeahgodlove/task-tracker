@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -20,7 +21,20 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatListModule } from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { AboutComponent } from './pages/about/about.component';
+import { FooterComponent } from './components/footer/footer.component';
+
+const appRoutes: Routes = [
+  {
+    path: '',
+    component: TasksComponent,
+  },
+  {
+    path: 'about',
+    component: AboutComponent,
+  },
+];
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +43,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     TasksComponent,
     TaskItemComponent,
     AddTaskComponent,
+    AboutComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +58,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     HttpClientModule,
     FormsModule,
     MatInputModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    RouterModule.forRoot(appRoutes, { enableTracing: true }),
   ],
   providers: [],
   bootstrap: [AppComponent],
